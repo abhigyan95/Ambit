@@ -34,7 +34,7 @@ export const insuranceProducts: InsuranceProductData[] = [
     sumInsured: "₹15,00,000",
     availableSumInsured: ["₹15,00,000"],
     productAmount: "₹58,869",
-    productTenure: "Student – 5 Yr",
+    productTenure: "5 Yr",
     keyBenefits: [
       "Complimentary Credit Life insurance cover of ₹15,00,000 sum assured",
       "Wellness benefits worth – ₹59,000 Which Includes Below Benefits-",
