@@ -27,8 +27,8 @@ export function LoanApplicationStep() {
     <div className="max-w-4xl mx-auto">
       <Card className="shadow-lg border-2">
         <CardHeader className="bg-gradient-to-r from-primary/5 to-transparent border-b">
-          <CardTitle className="text-2xl text-balance">Education Loan Application</CardTitle>
-          <CardDescription className="text-base mt-2">Please provide your details to proceed with the application</CardDescription>
+          <CardTitle className="text-2xl text-balance">Vehicle Finance Application</CardTitle>
+          <CardDescription className="text-base mt-2">Please provide your details to proceed with your vehicle loan application</CardDescription>
         </CardHeader>
         <CardContent className="space-y-8">
           {/* Applicant Details Section */}
@@ -39,23 +39,22 @@ export function LoanApplicationStep() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="studentName">Student Name *</Label>
+                <Label htmlFor="applicantName">Applicant Name *</Label>
                 <Input
-                  id="studentName"
-                  placeholder="Enter student full name"
+                  id="applicantName"
+                  placeholder="Enter applicant full name"
                   value={formData.fullName || ""}
                   onChange={(e) => handleChange("fullName", e.target.value)}
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="parentName">Parent / Co-Applicant Name *</Label>
+                <Label htmlFor="parentName">Co-Applicant Name</Label>
                 <Input
                   id="parentName"
-                  placeholder="Enter parent or co-applicant name"
+                  placeholder="Enter co-applicant name (if any)"
                   value={formData.parentName || ""}
                   onChange={(e) => handleChange("parentName", e.target.value)}
-                  required
                 />
               </div>
               <div className="space-y-2">
@@ -204,40 +203,43 @@ export function LoanApplicationStep() {
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-foreground">
               <Building2Icon className="size-5" />
-              <h3 className="font-semibold text-lg">Loan Details</h3>
+              <h3 className="font-semibold text-lg">Vehicle & Loan Details</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="educationType">Education Type *</Label>
+                <Label htmlFor="vehicleType">Vehicle Type *</Label>
                 <Select
-                  value={formData.educationType || ""}
-                  onValueChange={(value) => handleChange("educationType", value)}
+                  value={formData.vehicleType || ""}
+                  onValueChange={(value) => handleChange("vehicleType", value)}
                 >
-                  <SelectTrigger id="educationType">
-                    <SelectValue placeholder="Select education type" />
+                  <SelectTrigger id="vehicleType">
+                    <SelectValue placeholder="Select vehicle type" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="ug">Undergraduate (UG)</SelectItem>
-                    <SelectItem value="pg-india">PG India</SelectItem>
-                    <SelectItem value="pg-international">PG International</SelectItem>
-                    <SelectItem value="professional">Professional (CA, CS, etc.)</SelectItem>
+                    <SelectItem value="new-car">New Car</SelectItem>
+                    <SelectItem value="used-car">Used Car</SelectItem>
+                    <SelectItem value="two-wheeler">Two-Wheeler</SelectItem>
+                    <SelectItem value="commercial">Commercial Vehicle</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="moratorium">Moratorium Period (Years) *</Label>
+                <Label htmlFor="downPayment">Down Payment (%) *</Label>
                 <Select
-                  value={formData.moratorium || ""}
-                  onValueChange={(value) => handleChange("moratorium", value)}
+                  value={formData.downPayment || ""}
+                  onValueChange={(value) => handleChange("downPayment", value)}
                 >
-                  <SelectTrigger id="moratorium">
-                    <SelectValue placeholder="Select moratorium period" />
+                  <SelectTrigger id="downPayment">
+                    <SelectValue placeholder="Select down payment" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="0">0 Years</SelectItem>
-                    <SelectItem value="1">1 Year</SelectItem>
-                    <SelectItem value="2">2 Years</SelectItem>
-                    <SelectItem value="3">3 Years</SelectItem>
+                    <SelectItem value="10">10%</SelectItem>
+                    <SelectItem value="15">15%</SelectItem>
+                    <SelectItem value="20">20%</SelectItem>
+                    <SelectItem value="25">25%</SelectItem>
+                    <SelectItem value="30">30%</SelectItem>
+                    <SelectItem value="40">40%</SelectItem>
+                    <SelectItem value="50">50%</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -248,7 +250,7 @@ export function LoanApplicationStep() {
                   type="number"
                   placeholder="e.g. 5"
                   min={1}
-                  max={30}
+                  max={7}
                   value={formData.loanTenure || ""}
                   onChange={(e) => handleChange("loanTenure", e.target.value)}
                   required

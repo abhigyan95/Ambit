@@ -162,14 +162,32 @@ export function SuccessStep() {
                   <p className="text-lg font-bold text-primary">{state.losId}</p>
                 </div>
                 <div>
+                  <p className="text-xs text-muted-foreground font-medium">Vehicle Type</p>
+                  <p className="text-lg font-bold">
+                    {state.loanApplication.vehicleType === "new-car"
+                      ? "New Car"
+                      : state.loanApplication.vehicleType === "used-car"
+                      ? "Used Car"
+                      : state.loanApplication.vehicleType === "two-wheeler"
+                      ? "Two-Wheeler"
+                      : state.loanApplication.vehicleType === "commercial"
+                      ? "Commercial Vehicle"
+                      : "—"}
+                  </p>
+                </div>
+                <div>
                   <p className="text-xs text-muted-foreground font-medium">Loan Amount</p>
                   <p className="text-lg font-bold">
                     ₹{Number(state.loanApplication.loanAmount || 0).toLocaleString("en-IN")}
                   </p>
                 </div>
                 <div>
+                  <p className="text-xs text-muted-foreground font-medium">Down Payment</p>
+                  <p className="text-lg font-bold">{state.loanApplication.downPayment ? `${state.loanApplication.downPayment}%` : "—"}</p>
+                </div>
+                <div>
                   <p className="text-xs text-muted-foreground font-medium">Tenure</p>
-                  <p className="text-lg font-bold">{state.loanApplication.loanTenure ? `${state.loanApplication.loanTenure} Years` : state.loanApplication.moratorium ? `${state.loanApplication.moratorium} Years` : "—"}</p>
+                  <p className="text-lg font-bold">{state.loanApplication.loanTenure ? `${state.loanApplication.loanTenure} Years` : "—"}</p>
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground font-medium">Status</p>

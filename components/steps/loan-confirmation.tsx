@@ -64,12 +64,12 @@ export function LoanConfirmationStep() {
               <h3 className="font-semibold text-foreground border-b pb-2">Applicant Details</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Student Name:</span>
+                  <span className="text-muted-foreground">Applicant Name:</span>
                   <span className="font-medium text-foreground">{state.loanApplication.fullName}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Parent/Co-Applicant:</span>
-                  <span className="font-medium text-foreground">{state.loanApplication.parentName}</span>
+                  <span className="text-muted-foreground">Co-Applicant:</span>
+                  <span className="font-medium text-foreground">{state.loanApplication.parentName || "—"}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Mobile:</span>
@@ -87,15 +87,17 @@ export function LoanConfirmationStep() {
               <h3 className="font-semibold text-foreground border-b pb-2">Loan Details</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Education Type:</span>
+                  <span className="text-muted-foreground">Vehicle Type:</span>
                   <span className="font-medium text-foreground">
-                    {state.loanApplication.educationType === "pg-international"
-                      ? "PG International"
-                      : state.loanApplication.educationType === "pg-india"
-                      ? "PG India"
-                      : state.loanApplication.educationType === "ug"
-                      ? "Undergraduate (UG)"
-                      : state.loanApplication.educationType || "N/A"}
+                    {state.loanApplication.vehicleType === "new-car"
+                      ? "New Car"
+                      : state.loanApplication.vehicleType === "used-car"
+                      ? "Used Car"
+                      : state.loanApplication.vehicleType === "two-wheeler"
+                      ? "Two-Wheeler"
+                      : state.loanApplication.vehicleType === "commercial"
+                      ? "Commercial Vehicle"
+                      : state.loanApplication.vehicleType || "N/A"}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
@@ -128,9 +130,9 @@ export function LoanConfirmationStep() {
                   )}
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Moratorium Period:</span>
+                  <span className="text-muted-foreground">Down Payment:</span>
                   <span className="font-medium text-foreground">
-                    {state.loanApplication.moratorium || "0"} Years
+                    {state.loanApplication.downPayment || "—"}%
                   </span>
                 </div>
                 <div className="flex justify-between">

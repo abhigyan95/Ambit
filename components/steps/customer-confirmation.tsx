@@ -273,7 +273,7 @@ export function CustomerConfirmationStep() {
             </div>
             <CardTitle className="text-2xl">Welcome, {state.loanApplication.fullName || "Customer"}!</CardTitle>
             <CardDescription className="text-base mt-2">
-              Please review and confirm the third-party products selected with your education loan application
+              Please review and confirm the third-party products selected with your vehicle finance application
             </CardDescription>
           </CardHeader>
         </Card>
@@ -301,12 +301,12 @@ export function CustomerConfirmationStep() {
           <CardContent className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-lg bg-muted/30">
               <div>
-                <p className="text-xs text-muted-foreground mb-1">Student Name</p>
+                <p className="text-xs text-muted-foreground mb-1">Applicant Name</p>
                 <p className="font-semibold text-foreground">{state.loanApplication.fullName}</p>
               </div>
               <div>
-                <p className="text-xs text-muted-foreground mb-1">Parent/Co-Applicant</p>
-                <p className="font-semibold text-foreground">{state.loanApplication.parentName}</p>
+                <p className="text-xs text-muted-foreground mb-1">Co-Applicant</p>
+                <p className="font-semibold text-foreground">{state.loanApplication.parentName || "—"}</p>
               </div>
               <div>
                 <p className="text-xs text-muted-foreground mb-1">Mobile Number</p>
@@ -317,15 +317,17 @@ export function CustomerConfirmationStep() {
                 <p className="font-semibold text-foreground">{state.loanApplication.email}</p>
               </div>
               <div>
-                <p className="text-xs text-muted-foreground mb-1">Education Type</p>
+                <p className="text-xs text-muted-foreground mb-1">Vehicle Type</p>
                 <p className="font-semibold text-foreground">
-                  {state.loanApplication.educationType === "pg-international"
-                    ? "PG International"
-                    : state.loanApplication.educationType === "pg-india"
-                    ? "PG India"
-                    : state.loanApplication.educationType === "ug"
-                    ? "Undergraduate"
-                    : state.loanApplication.educationType || "N/A"}
+                  {state.loanApplication.vehicleType === "new-car"
+                    ? "New Car"
+                    : state.loanApplication.vehicleType === "used-car"
+                    ? "Used Car"
+                    : state.loanApplication.vehicleType === "two-wheeler"
+                    ? "Two-Wheeler"
+                    : state.loanApplication.vehicleType === "commercial"
+                    ? "Commercial Vehicle"
+                    : state.loanApplication.vehicleType || "N/A"}
                 </p>
               </div>
               <div>
@@ -445,7 +447,7 @@ export function CustomerConfirmationStep() {
                   </div>
                   <div className="flex justify-between p-2 rounded bg-muted/30">
                     <span className="text-muted-foreground">Occupation:</span>
-                    <span className="font-medium">{state.insuranceProposal.occupation || "Student"}</span>
+                    <span className="font-medium">{state.insuranceProposal.occupation || "—"}</span>
                   </div>
                   {state.insuranceProposal.height && (
                     <div className="flex justify-between p-2 rounded bg-muted/30">

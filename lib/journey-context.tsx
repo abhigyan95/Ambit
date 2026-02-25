@@ -17,8 +17,8 @@ export interface LoanApplicationData {
   pincode: string
   loanAmount: string
   loanTenure?: string
-  educationType?: string
-  moratorium?: string
+  vehicleType?: string
+  downPayment?: string
   propertyType?: string
   employmentType?: string
   monthlyIncome?: string
@@ -85,11 +85,11 @@ interface JourneyContextType {
 
 const JourneyContext = createContext<JourneyContextType | undefined>(undefined)
 
-// Demo pre-fill: editable dummy data so clients don't re-enter on every test. Loan 30,00,000, tenure 12 years, no medical conditions.
+// Demo pre-fill: editable dummy data for vehicle finance. Loan 8,00,000, tenure 5 years.
 const defaultLoanApplication: Partial<LoanApplicationData> = {
   fullName: "Rahul Sharma",
   parentName: "Suresh Sharma",
-  dateOfBirth: "1998-05-15",
+  dateOfBirth: "1990-05-15",
   mobile: "9876543210",
   email: "rahul.sharma@example.com",
   pan: "ABCDE1234F",
@@ -98,21 +98,21 @@ const defaultLoanApplication: Partial<LoanApplicationData> = {
   city: "Bangalore",
   state: "Karnataka",
   pincode: "560001",
-  loanAmount: "3000000",
-  loanTenure: "12",
-  educationType: "ug",
-  moratorium: "0",
+  loanAmount: "800000",
+  loanTenure: "5",
+  vehicleType: "new-car",
+  downPayment: "20",
   gender: "male",
-  annualIncome: "800000",
-  occupation: "Student",
+  annualIncome: "1200000",
+  occupation: "Salaried",
 }
 
 const defaultInsuranceProposal: Partial<InsuranceProposalData> = {
   gender: "male",
   nomineeName: "Priya Sharma",
-  nomineeRelationship: "parent",
-  nomineeDob: "1970-08-20",
-  occupation: "Student",
+  nomineeRelationship: "spouse",
+  nomineeDob: "1992-08-20",
+  occupation: "Salaried",
   height: "170",
   weight: "65",
   hasPreexistingDiseases: false,
