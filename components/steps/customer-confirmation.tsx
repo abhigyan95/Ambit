@@ -18,6 +18,7 @@ import Image from "next/image"
 import { AmbitLogo } from "@/components/ambit-logo"
 import { insuranceProducts } from "@/lib/insurance-data"
 import type { InsuranceProductData } from "@/lib/journey-context"
+import { getLoanTypeLabel, getVehicleTypeLabel } from "@/lib/loan-labels"
 
 const companyLogos: Record<string, string> = {
   "bajaj-finserv-health": "/bajaj-health-logo.png",
@@ -273,7 +274,7 @@ export function CustomerConfirmationStep() {
             </div>
             <CardTitle className="text-2xl">Welcome, {state.loanApplication.fullName || "Customer"}!</CardTitle>
             <CardDescription className="text-base mt-2">
-              Please review and confirm the third-party products selected with your vehicle finance application
+              Please review and confirm the third-party products selected with your loan application
             </CardDescription>
           </CardHeader>
         </Card>
@@ -317,19 +318,15 @@ export function CustomerConfirmationStep() {
                 <p className="font-semibold text-foreground">{state.loanApplication.email}</p>
               </div>
               <div>
-                <p className="text-xs text-muted-foreground mb-1">Vehicle Type</p>
-                <p className="font-semibold text-foreground">
-                  {state.loanApplication.vehicleType === "new-car"
-                    ? "New Car"
-                    : state.loanApplication.vehicleType === "used-car"
-                    ? "Used Car"
-                    : state.loanApplication.vehicleType === "two-wheeler"
-                    ? "Two-Wheeler"
-                    : state.loanApplication.vehicleType === "commercial"
-                    ? "Commercial Vehicle"
-                    : state.loanApplication.vehicleType || "N/A"}
-                </p>
+                <p className="text-xs text-muted-foreground mb-1">Loan Type</p>
+                <p className="font-semibold text-foreground">{getLoanTypeLabel(state.loanApplication.loanType)}</p>
               </div>
+              {state.loanApplication.loanType === "vehicle-finance" && (
+                <div>
+                  <p className="text-xs text-muted-foreground mb-1">Vehicle Type</p>
+                  <p className="font-semibold text-foreground">{getVehicleTypeLabel(state.loanApplication.vehicleType)}</p>
+                </div>
+              )}
               <div>
                 <p className="text-xs text-muted-foreground mb-1">Loan Amount</p>
                 <p className="font-bold text-primary text-lg">

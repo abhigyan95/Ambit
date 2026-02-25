@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { CheckCircleIcon, Plus, ArrowRight, Edit2, Check, X } from "lucide-react"
+import { getLoanTypeLabel, getVehicleTypeLabel } from "@/lib/loan-labels"
 
 export function LoanConfirmationStep() {
   const { state, setCurrentStep, updateLoanApplication } = useJourney()
@@ -87,19 +88,15 @@ export function LoanConfirmationStep() {
               <h3 className="font-semibold text-foreground border-b pb-2">Loan Details</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Vehicle Type:</span>
-                  <span className="font-medium text-foreground">
-                    {state.loanApplication.vehicleType === "new-car"
-                      ? "New Car"
-                      : state.loanApplication.vehicleType === "used-car"
-                      ? "Used Car"
-                      : state.loanApplication.vehicleType === "two-wheeler"
-                      ? "Two-Wheeler"
-                      : state.loanApplication.vehicleType === "commercial"
-                      ? "Commercial Vehicle"
-                      : state.loanApplication.vehicleType || "N/A"}
-                  </span>
+                  <span className="text-muted-foreground">Loan Type:</span>
+                  <span className="font-medium text-foreground">{getLoanTypeLabel(state.loanApplication.loanType)}</span>
                 </div>
+                {state.loanApplication.loanType === "vehicle-finance" && (
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Vehicle Type:</span>
+                    <span className="font-medium text-foreground">{getVehicleTypeLabel(state.loanApplication.vehicleType)}</span>
+                  </div>
+                )}
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Loan Amount:</span>
                   {isEditingAmount ? (
@@ -129,12 +126,14 @@ export function LoanConfirmationStep() {
                     </div>
                   )}
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Down Payment:</span>
-                  <span className="font-medium text-foreground">
-                    {state.loanApplication.downPayment || "—"}%
-                  </span>
-                </div>
+                {state.loanApplication.loanType === "vehicle-finance" && (
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Down Payment:</span>
+                    <span className="font-medium text-foreground">
+                      {state.loanApplication.downPayment || "—"}%
+                    </span>
+                  </div>
+                )}
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Application ID:</span>
                   <span className="font-bold text-primary">{state.losId}</span>

@@ -17,6 +17,7 @@ export interface LoanApplicationData {
   pincode: string
   loanAmount: string
   loanTenure?: string
+  loanType?: string
   vehicleType?: string
   downPayment?: string
   propertyType?: string
@@ -85,7 +86,7 @@ interface JourneyContextType {
 
 const JourneyContext = createContext<JourneyContextType | undefined>(undefined)
 
-// Demo pre-fill: editable dummy data for vehicle finance. Loan 8,00,000, tenure 5 years.
+// Demo pre-fill: default secured loan. Loan 8,00,000, tenure 5 years.
 const defaultLoanApplication: Partial<LoanApplicationData> = {
   fullName: "Rahul Sharma",
   parentName: "Suresh Sharma",
@@ -100,8 +101,7 @@ const defaultLoanApplication: Partial<LoanApplicationData> = {
   pincode: "560001",
   loanAmount: "800000",
   loanTenure: "5",
-  vehicleType: "new-car",
-  downPayment: "20",
+  loanType: "secured",
   gender: "male",
   annualIncome: "1200000",
   occupation: "Salaried",

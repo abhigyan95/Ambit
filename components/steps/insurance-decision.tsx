@@ -28,7 +28,7 @@ export function InsuranceDecisionStep() {
           </div>
           <CardTitle className="text-2xl text-balance">Secure Your Customer with Health Insurance</CardTitle>
           <CardDescription className="text-base leading-relaxed">
-            Would you like to protect your customer with comprehensive Health Insurance linked to this Home Loan?
+            Would you like to protect your customer with comprehensive Health Insurance linked to this loan?
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
