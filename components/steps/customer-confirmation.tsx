@@ -20,28 +20,24 @@ import type { InsuranceProductData } from "@/lib/journey-context"
 
 const companyLogos: Record<string, string> = {
   "bajaj-finserv-health": "/bajaj-health-logo.png",
-  "health-assure": "/health-assure-logo.png",
-  "icici": "/icici-lombard-logo.png",
-  "max-life": "/max-life-logo.png",
   "hdfc-life": "/hdfc-life-logo.png",
-  "care-health": "/care-health-logo.png",
-  "zuno": "/zuno-logo.png",
-  "bajaj-general": "/bajaj-general-logo.png",
-  "bajaj-life": "/bajaj-life-logo.avif",
-  "new-life": "/placeholder-logo.png",
+  "pnb-metlife": "/pnb-metlife-logo.png",
+  "gpa": "/gpa-logo.png",
+  "hdc-emi": "/hdc-emi-logo.png",
 }
 
 const productTypeLabels: Record<string, string> = {
   vas: "VAS – Health Insurance",
   travel: "Travel Insurance",
-  creditlife: "MRTA / Credit Life Insurance",
+  creditlife: "Credit Life Insurance",
   health: "Health Insurance",
+  general: "General Insurance",
 }
 
-const CATEGORY_ORDER: (keyof typeof productTypeLabels)[] = ["vas", "creditlife", "health", "travel"]
+const CATEGORY_ORDER: (keyof typeof productTypeLabels)[] = ["vas", "creditlife", "general", "health", "travel"]
 
 function groupProductsByCategory(products: InsuranceProductData[]) {
-  const map: Record<string, InsuranceProductData[]> = { vas: [], travel: [], creditlife: [], health: [] }
+  const map: Record<string, InsuranceProductData[]> = { vas: [], travel: [], creditlife: [], general: [], health: [] }
   products.forEach((p) => {
     if (map[p.productType]) map[p.productType].push(p)
   })
@@ -253,7 +249,7 @@ export function CustomerConfirmationStep() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Image src="/avanse-logo.png" alt="Avanse Logo" width={100} height={50} className="h-10 w-auto" />
+              <Image src="/ambit-logo.png" alt="Ambit Logo" width={100} height={50} className="h-10 w-auto" />
               <div>
                 <h1 className="text-xl font-bold text-foreground">Product Confirmation</h1>
                 <p className="text-xs text-muted-foreground">Application ID: {state.losId}</p>
@@ -773,7 +769,7 @@ export function CustomerConfirmationStep() {
                 className="mt-1"
               />
               <Label htmlFor="consent-share" className="cursor-pointer flex-1">
-                <p className="font-medium">I allow Avanse to share my personal details to third party for issuing these additional products</p>
+                <p className="font-medium">I allow Ambit to share my personal details to third party for issuing these additional products</p>
               </Label>
             </div>
 
@@ -785,7 +781,7 @@ export function CustomerConfirmationStep() {
                 className="mt-1"
               />
               <Label htmlFor="consent-deduct" className="cursor-pointer flex-1">
-                <p className="font-medium">I allow Avanse to deduct the premium of these products from my funded amount</p>
+                <p className="font-medium">I allow Ambit to deduct the premium of these products from my funded amount</p>
               </Label>
             </div>
           </CardContent>

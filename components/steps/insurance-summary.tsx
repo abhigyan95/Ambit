@@ -84,8 +84,9 @@ function EditProductModal({
 const productTypeLabels: Record<string, string> = {
   vas: "VAS – Health Insurance",
   travel: "Travel Insurance",
-  creditlife: "MRTA / Credit Life Insurance",
+  creditlife: "Credit Life Insurance",
   health: "Health Insurance",
+  general: "General Insurance",
 }
 
 export function InsuranceSummaryStep() {

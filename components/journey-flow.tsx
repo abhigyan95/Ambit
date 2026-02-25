@@ -43,7 +43,7 @@ export function JourneyFlow() {
       <header className="border-b bg-card shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-6">
-            <Image src="/avanse-logo.png" alt="Avanse Logo" width={120} height={60} className="h-12 w-auto" />
+            <Image src="/ambit-logo.png" alt="Ambit Logo" width={120} height={60} className="h-12 w-auto" />
             <div>
               <h1 className="text-2xl font-bold text-foreground">Third Party Product Portal</h1>
             </div>

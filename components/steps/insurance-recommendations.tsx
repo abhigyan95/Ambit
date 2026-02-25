@@ -18,21 +18,17 @@ import Image from "next/image"
 const productTypeLabels: Record<string, string> = {
   vas: "VAS – Health Insurance",
   travel: "Travel Insurance",
-  creditlife: "MRTA / Credit Life Insurance",
+  creditlife: "Credit Life Insurance",
   health: "Health Insurance",
+  general: "General Insurance",
 }
 
 const companyLogos: Record<string, string> = {
-  "bajaj-general": "/bajaj-general-logo.png",
-  "bajaj-life": "/bajaj-life-logo.avif",
   "bajaj-finserv-health": "/bajaj-health-logo.png",
-  "health-assure": "/health-assure-logo.png",
-  "icici": "/icici-lombard-logo.png",
-  "max-life": "/max-life-logo.png",
   "hdfc-life": "/hdfc-life-logo.png",
-  "care-health": "/care-health-logo.png",
-  "zuno": "/zuno-logo.png",
-  "new-life": "/placeholder-logo.png",
+  "pnb-metlife": "/pnb-metlife-logo.png",
+  "gpa": "/gpa-logo.png",
+  "hdc-emi": "/hdc-emi-logo.png",
 }
 
 function EditProductModal({
@@ -411,9 +407,9 @@ export function InsuranceRecommendationsStep() {
 
   const totalPremium = state.selectedInsuranceProducts.reduce((sum, p) => sum + p.calculatedPremium, 0)
 
-  const categoryOrder: (keyof typeof productTypeLabels)[] = ["vas", "creditlife", "health", "travel"]
+  const categoryOrder: (keyof typeof productTypeLabels)[] = ["vas", "creditlife", "general", "health", "travel"]
   const productsByCategory = useMemo(() => {
-    const map: Record<string, typeof insuranceProducts> = { vas: [], creditlife: [], health: [], travel: [] }
+    const map: Record<string, typeof insuranceProducts> = { vas: [], creditlife: [], general: [], health: [], travel: [] }
     filteredProducts.forEach((p) => {
       if (map[p.productType]) map[p.productType].push(p)
     })
@@ -458,7 +454,7 @@ export function InsuranceRecommendationsStep() {
         </div>
       </div>
 
-      <p className="text-sm text-muted-foreground">You can select only one product per category (VAS, Travel, Credit Life, Health).</p>
+      <p className="text-sm text-muted-foreground">You can select only one product per category (VAS, Credit Life, General Insurance, Health, Travel).</p>
 
       <div className="space-y-8">
         {(categoryOrder.every((c) => !productsByCategory[c]?.length) ? (

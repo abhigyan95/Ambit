@@ -25,7 +25,7 @@ export function SendCustomerLinkStep() {
   const [customerEmail, setCustomerEmail] = useState(state.loanApplication.email || SAMPLE_EMAIL)
 
   // Generate a dummy customer link
-  const customerLink = `https://avanse-portal.com/customer/confirm/${state.losId}`
+  const customerLink = `https://ambit-portal.com/customer/confirm/${state.losId}`
 
   const handleSendLink = () => {
     setIsSending(true)
@@ -69,7 +69,7 @@ export function SendCustomerLinkStep() {
         </CardHeader>
 
         <CardContent className="space-y-6">
-          {/* Products Table (Avanse LOS style) */}
+          {/* Products Table (Ambit LOS style) */}
           {state.selectedInsuranceProducts && state.selectedInsuranceProducts.length > 0 && (
             <div className="rounded-lg border overflow-hidden">
               <Table>

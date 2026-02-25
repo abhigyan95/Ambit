@@ -10,23 +10,19 @@ import { Badge } from "@/components/ui/badge"
 import { useState } from "react"
 
 const companyLogos: Record<string, string> = {
-  "bajaj-general": "/bajaj-general-logo.png",
-  "bajaj-life": "/bajaj-life-logo.avif",
   "bajaj-finserv-health": "/bajaj-health-logo.png",
-  "health-assure": "/health-assure-logo.png",
-  "icici": "/icici-lombard-logo.png",
-  "max-life": "/max-life-logo.png",
   "hdfc-life": "/hdfc-life-logo.png",
-  "care-health": "/care-health-logo.png",
-  "zuno": "/zuno-logo.png",
-  "new-life": "/placeholder-logo.png",
+  "pnb-metlife": "/pnb-metlife-logo.png",
+  "gpa": "/gpa-logo.png",
+  "hdc-emi": "/hdc-emi-logo.png",
 }
 
 const productTypeLabels: Record<string, string> = {
   vas: "VAS – Health Insurance",
   travel: "Travel Insurance",
-  creditlife: "MRTA / Credit Life Insurance",
+  creditlife: "Credit Life Insurance",
   health: "Health Insurance",
+  general: "General Insurance",
 }
 
 export function InsuranceDecisionConfirmationStep() {
@@ -111,7 +107,7 @@ export function InsuranceDecisionConfirmationStep() {
           >
             All Categories
           </Button>
-          {["vas", "travel", "creditlife", "health"].map((category) => (
+          {["vas", "travel", "creditlife", "general", "health"].map((category) => (
             <Button
               key={category}
               onClick={() => setActiveFilter(category)}
@@ -127,7 +123,7 @@ export function InsuranceDecisionConfirmationStep() {
 
       {/* Product Categories */}
       <div className="space-y-8">
-        {["vas", "travel", "creditlife", "health"].map((category) => {
+        {["vas", "travel", "creditlife", "general", "health"].map((category) => {
           const categoryProducts = insuranceProducts.filter((p) => p.productType === category)
           
           // Skip if filter is active and doesn't match

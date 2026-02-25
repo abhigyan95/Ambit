@@ -9,15 +9,10 @@ import Image from "next/image"
 
 const companyLogos: Record<string, string> = {
   "bajaj-finserv-health": "/bajaj-health-logo.png",
-  "health-assure": "/health-assure-logo.png",
-  "icici": "/icici-lombard-logo.png",
-  "max-life": "/max-life-logo.png",
   "hdfc-life": "/hdfc-life-logo.png",
-  "care-health": "/care-health-logo.png",
-  "zuno": "/zuno-logo.png",
-  "bajaj-general": "/bajaj-general-logo.png",
-  "bajaj-life": "/bajaj-life-logo.avif",
-  "new-life": "/placeholder-logo.png",
+  "pnb-metlife": "/pnb-metlife-logo.png",
+  "gpa": "/gpa-logo.png",
+  "hdc-emi": "/hdc-emi-logo.png",
 }
 
 export function SuccessStep() {

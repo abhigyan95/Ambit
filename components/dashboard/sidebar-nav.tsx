@@ -36,7 +36,7 @@ export function Sidebar() {
   return (
     <div className="w-64 bg-card border-r border-border flex flex-col">
       <div className="p-6 border-b border-border flex flex-col items-center gap-4">
-        <Image src="/avanse-logo.png" alt="Avanse Logo" width={120} height={60} className="object-contain" />
+        <Image src="/ambit-logo.png" alt="Ambit Logo" width={120} height={60} className="object-contain" />
         <div className="text-center">
           <h2 className="text-lg font-bold text-foreground">Agent Portal</h2>
           <p className="text-xs text-muted-foreground mt-1">Loan & Insurance Management</p>

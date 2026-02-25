@@ -31,8 +31,8 @@ export interface InsuranceProductData {
   insurerId: string
   productName: string
   insurerName: string
-  productType: "vas" | "travel" | "creditlife" | "health"
-  companyCategory: "bajaj-general" | "bajaj-life" | "bajaj-finserv-health" | "health-assure" | "icici" | "max-life" | "hdfc-life" | "care-health" | "zuno" | "new-life"
+  productType: "vas" | "travel" | "creditlife" | "health" | "general"
+  companyCategory: "bajaj-finserv-health" | "hdfc-life" | "pnb-metlife" | "gpa" | "hdc-emi"
   sumInsured: string
   availableSumInsured?: string[]
   productAmount: string

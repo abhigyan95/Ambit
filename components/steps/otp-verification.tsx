@@ -37,7 +37,7 @@ export function OtpVerificationStep() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Image src="/avanse-logo.png" alt="Avanse Logo" width={100} height={50} className="h-10 w-auto" />
+              <Image src="/ambit-logo.png" alt="Ambit Logo" width={100} height={50} className="h-10 w-auto" />
               <div>
                 <h1 className="text-xl font-bold text-foreground">Identity Verification</h1>
                 <p className="text-xs text-muted-foreground">Application ID: {state.losId}</p>
