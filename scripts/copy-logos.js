@@ -12,6 +12,10 @@ const publicDir = path.join(__dirname, "..", "public");
 
 const logos = [
   {
+    src: "c__Users_Abhigyan.Pandey_AppData_Roaming_Cursor_User_workspaceStorage_2fd82f126954e51ec3944e08e83f469c_images_ambit_logo-2c820fe3-462c-43a5-9c77-dcb524930d88.png",
+    dest: "ambit-logo.png",
+  },
+  {
     src: "c__Users_Abhigyan.Pandey_AppData_Roaming_Cursor_User_workspaceStorage_2fd82f126954e51ec3944e08e83f469c_images_Bajaj_Health_Logo-50ca0a7e-e0d7-45f0-b9a3-1eee6b4fbc61.png",
     dest: "bajaj-health-logo.png",
   },

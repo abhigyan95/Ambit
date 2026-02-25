@@ -15,6 +15,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { AlertCircleIcon, CheckCircleIcon, ShieldCheckIcon, UserIcon, FileTextIcon, PackageIcon, Edit2, ChevronDown, X } from "lucide-react"
 import Image from "next/image"
+import { AmbitLogo } from "@/components/ambit-logo"
 import { insuranceProducts } from "@/lib/insurance-data"
 import type { InsuranceProductData } from "@/lib/journey-context"
 
@@ -249,7 +250,7 @@ export function CustomerConfirmationStep() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Image src="/ambit-logo.png" alt="Ambit Logo" width={100} height={50} className="h-10 w-auto" />
+              <AmbitLogo width={100} height={50} className="h-10 w-auto" />
               <div>
                 <h1 className="text-xl font-bold text-foreground">Product Confirmation</h1>
                 <p className="text-xs text-muted-foreground">Application ID: {state.losId}</p>
